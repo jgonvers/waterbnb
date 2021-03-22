@@ -35,7 +35,7 @@ owner_list = User.where(role:"owner")
 
 puts "creating 10 pedalos"
 10.times do
-  ped = Pedalo.new(
+  Pedalo.new(
     name: Faker::Mountain.name,
     description: Faker::Hipster.paragraph,
     price_per_hour: (2500..5000).to_a.sample,
