@@ -13,6 +13,8 @@ puts "creating 20 users"
   User.new(
     first_name: Faker::Name.first_name,
     last_name: Faker::Name.last_name,
+    password: '1234567',
+    password_confirmation: '1234567',
     role: "user",
     age: (18..99).to_a.sample,
     email: Faker::Internet.email,
@@ -24,6 +26,8 @@ puts "creating 5 owner"
   User.new(
     first_name: Faker::Name.first_name,
     last_name: Faker::Name.last_name,
+    password: '1234567',
+    password_confirmation: '1234567',
     role: "owner",
     age: (18..99).to_a.sample,
     email: Faker::Internet.email,

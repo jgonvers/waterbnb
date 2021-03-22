@@ -13,4 +13,3 @@ class PedalosController < ApplicationController
   end
 
 end
-
