@@ -1,6 +1,10 @@
 Rails.application.routes.draw do
   root to: 'pages#home'
   resources :pedalos, only: [:index, :show, :new, :create] do
-    resources :reservations, only: [:index_res_pedalos, :show, :new, :create]
+    member do
+      get 'reservations', to: 'reservations#index_res_pedalos'
+    end
+    resources :reservations, only: [:show, :new, :create]
   end
+  get 'reservations', to: 'reservations#index_res_users'
 end
