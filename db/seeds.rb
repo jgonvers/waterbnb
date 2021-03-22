@@ -42,3 +42,22 @@ puts "creating 10 pedalos"
     owner: owner_list.sample
   ).save!
 end
+
+
+puts "creating 10 reservations"
+n = 0
+10.times do
+  duration = (1..3).to_a.sample
+  ped = Pedalo.all.sample
+  date = Time.now
+  date += 60*60*24*n
+  Reservation.new(
+    transaction_price: ped.price_per_hour * duration,
+    start_time: date,
+    end_time: date + 60*60*duration,
+    accepted: "pending",
+    user: user_list.sample,
+    pedalo: ped,
+  ).save!
+  n += 1
+end
