@@ -22,7 +22,7 @@ class ReservationsController < ApplicationController
     @pedalo = Pedalo.find(params[:pedalo_id])
     @reservation.pedalo_id = @pedalo.id
     @reservation.user_id = @user.id
-    @reservation.transaction_price = 30
+    @reservation.transaction_price = (@pedalo.price_per_hour / 100) * ((@reservation.end_time - @reservation.start_time)/ 3600)
     if @reservation.save
       redirect_to pedalo_reservation_path(@pedalo.id, @reservation.id)
     else
