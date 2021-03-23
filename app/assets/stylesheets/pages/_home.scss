@@ -26,3 +26,27 @@
   padding-top: 20px;
 }
 
+.button-login {
+  margin-left: 270px;
+  margin-top: 110px;
+}
+
+.btn-flat {
+  color: white;
+  padding: 8px 24px;
+  border-radius: 11px;
+  width: 170px;
+  height: 80px;
+  font-size: 35px;
+  background: rgb(232, 4, 209);
+  transition: background 0.3s ease;
+  padding-top: 12px;
+
+}
+
+.btn-flat:hover {
+  background: #883478;
+  color: white;
+}
+
+
