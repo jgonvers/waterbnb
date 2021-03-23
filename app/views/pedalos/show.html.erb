@@ -1,9 +1,13 @@
 <div class='container-show-pedalo'>
-  <img src="<%= @pedalo.image_link %>" alt="PEDALO">
-  <h1><%= @pedalo.name %></h1>
-  <p><%= @pedalo.description %></p>
-  <p><%= @pedalo.price_per_hour / 100 %> CHF per hour</p>
-  <p><%= @pedalo.owner.first_name %> <%= @pedalo.owner.last_name %></p>
+  <%= image_tag(@pedalo.image_link)%>
+  <div class='content-show'>
+    <h1><%= @pedalo.name %></h1>
+    <p><%= @pedalo.description %></p>
+    <p><strong><%= @pedalo.price_per_hour / 100 %> CHF per hour</strong></p>
+    <p>Owner's name: <%= @pedalo.owner.first_name %> <%= @pedalo.owner.last_name %></p>
+    <button class='btn-flat'>Book that pedalo!</button>
+    <button class='btn-back'>Back to list of pedalos</button>
+  </div>
 </div>
 
 

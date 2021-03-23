@@ -74,7 +74,7 @@ puts "creating 10 pedalos"
     price_per_hour: (2500..5000).to_a.sample,
     owner: owner_list.sample,
     location: ['Lausanne', 'Genève', 'Montreux', 'Vevey'].sample,
-    image_link: "/assets/images/pedalos_images/"+("1".."5").to_a.sample+".jpg",
+    image_link: "pedalos_images/"+("1".."5").to_a.sample+".jpg",
   ).save!
 end
 
