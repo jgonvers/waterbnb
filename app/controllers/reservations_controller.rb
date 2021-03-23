@@ -1,4 +1,6 @@
 class ReservationsController < ApplicationController
+  before_action :find_pedalo
+
 
   def index_res_pedalos
   end
@@ -10,18 +12,16 @@ class ReservationsController < ApplicationController
   end
 
   def new
+    find_pedalo
     @date = Time.now.strftime("%B %d, %Y")
-    @pedalo = Pedalo.find(params[:pedalo_id])
     @reservation = Reservation.new
-    # do some JS if time to display the total price
   end
 
   def create
+    find_pedalo
     @reservation = Reservation.new(reservation_params)
-    @user = current_user
-    @pedalo = Pedalo.find(params[:pedalo_id])
-    @reservation.pedalo_id = @pedalo.id
-    @reservation.user_id = @user.id
+    @reservation.pedalo = @pedalo
+    @reservation.user = current_user
     @reservation.transaction_price = (@pedalo.price_per_hour / 100) * ((@reservation.end_time - @reservation.start_time)/ 3600)
     if @reservation.save
       redirect_to pedalo_reservation_path(@pedalo.id, @reservation.id)
@@ -34,5 +34,9 @@ class ReservationsController < ApplicationController
 
   def reservation_params
     params.require(:reservation).permit(:start_time, :end_time)
+  end
+
+  def find_pedalo
+    @pedalo = Pedalo.find(params[:pedalo_id])
   end
 end
