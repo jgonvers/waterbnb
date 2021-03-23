@@ -1,0 +1,7 @@
+<h1>Book <strong><%= @pedalo.name %></strong> for: <strong><%= @date %></strong></h1>
+
+<%= simple_form_for [@pedalo, @reservation] do |f| %>
+  <%= f.input :start_time %>
+  <%= f.input :end_time %>
+  <%= f.submit "Book it!", class: "btn btn-primary" %>
+<% end %>
