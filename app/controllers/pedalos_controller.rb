@@ -5,6 +5,7 @@ class PedalosController < ApplicationController
   end
 
   def show
+    @pedalo = Pedalo.find(params[:id])
   end
 
   def new
