@@ -5,9 +5,11 @@
     <p><%= @pedalo.description %></p>
     <p><strong><%= @pedalo.price_per_hour / 100 %> CHF per hour</strong></p>
     <p>Owner's name: <%= @pedalo.owner.first_name %> <%= @pedalo.owner.last_name %></p>
-    <button class='btn-flat'>Book that pedalo!</button>
-    <button class='btn-back'>Back to list of pedalos</button>
+    <a class='btn-flat' href="<%= new_pedalo_reservation_path(@pedalo) %>">Book that pedalo!</a>
+    <a class='btn-back' href="<%= pedalos_path %>">Back to pedalos</a>
   </div>
 </div>
 
+
+ <div id="button-login"><a class="btn btn-flat" href="<%= pedalos_path%>">LOGIN</a></div>
 

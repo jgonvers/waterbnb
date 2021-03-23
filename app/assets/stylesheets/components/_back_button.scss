@@ -2,10 +2,18 @@
   color: black;
   height: 50px;
   width: 80px;
-  font-size: 10px;
+  font-size: 15px;
   border: white 1px solid;
   position: absolute;
-  left: 500px;
-  top: 325px;
+  left: 85%;
+  top: 82%;
   border-radius: 15px;
+  text-decoration: none;
+  background-color: white;
+
+  &:hover {
+    background-color: black;
+    color: white;
+    text-decoration: none;
+  }
 }
