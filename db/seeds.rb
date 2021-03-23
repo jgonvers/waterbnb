@@ -15,7 +15,6 @@ puts "creating 20 users"
     last_name: Faker::Name.last_name,
     password: '1234567',
     password_confirmation: '1234567',
-    role: "user",
     age: (18..99).to_a.sample,
     email: Faker::Internet.email,
   ).save!
@@ -27,14 +26,14 @@ puts "creating 5 owner"
     first_name: Faker::Name.first_name,
     last_name: Faker::Name.last_name,
     password: '1234567',
+    role: 'owner',
     password_confirmation: '1234567',
-    role: "owner",
     age: (18..99).to_a.sample,
     email: Faker::Internet.email,
   ).save!
 end
 
-user_list = User.where(role:"user")
+user_list = User.where(role:"client")
 owner_list = User.where(role:"owner")
 
 puts "creating 10 pedalos"
