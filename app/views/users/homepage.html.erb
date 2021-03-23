@@ -1,0 +1,143 @@
+<div class="container">
+
+<% if ["owner", "admin"].include? current_user.role then %>
+  <h2>Your Pedalos</h2>
+  <% if @pedalos.count.zero? then %>
+  <h3>You have no pedalos</h3>
+  <% else %>
+  <div id="carouselPedalo" class="carousel slide rounded bg-info m-3" data-ride="carousel">
+    <div class="carousel-inner">
+      <div class="carousel-item active">
+        <div class="d-block w-100 d-flex justify-content-center">
+          <a href="<%= pedalo_path(@pedalos.first) %>" class="text-reset text-decoration-none">
+            <%= render 'pedalos/card_pedalo', pedalo: @pedalos.first %>
+          </a>
+        </div>
+      </div>
+      <% @pedalos.drop(1).each do |pedalo| %>
+        <div class="carousel-item">
+          <div class="d-block w-100 d-flex justify-content-center">
+            <a href="<%= pedalo_path(pedalo) %>" class="text-reset text-decoration-none">
+              <%= render 'pedalos/card_pedalo', pedalo: pedalo %>
+            </a>
+          </div>
+        </div>
+      <% end %>
+    <a class="carousel-control-prev" href="#carouselPedalo" role="button" data-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="sr-only">Previous</span>
+    </a>
+    <a class="carousel-control-next" href="#carouselPedalo" role="button" data-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="sr-only">Next</span>
+    </a>
+  </div>
+  </div>
+  <% end %>
+
+  <h2>Pending Reservation for your Pedalos</h2>
+  <% if @reservations_owner_pending.count.zero? then %>
+  <h3>You have no reservation pending</h3>
+  <% else %>
+  <div id="carouselPending" class="carousel slide rounded bg-info m-3" data-ride="carousel">
+    <div class="carousel-inner">
+      <div class="carousel-item active">
+        <div class="d-block w-100 d-flex justify-content-center">
+          <a href="<%= reservations_path(@reservations_owner_pending.first) %>" class="text-reset text-decoration-none">
+            <%= "#{@reservations_owner_pending.first}" %>
+          </a>
+        </div>
+      </div>
+      <% @reservations_owner_pending.drop(1).each do |reservation| %>
+        <div class="carousel-item">
+          <div class="d-block w-100 d-flex justify-content-center">
+            <a href="<%= reservations_path(reservation) %>" class="text-reset text-decoration-none">
+              <%= "#{reservation}" %>
+            </a>
+          </div>
+        </div>
+      <% end %>
+    <a class="carousel-control-prev" href="#carouselPending" role="button" data-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="sr-only">Previous</span>
+    </a>
+    <a class="carousel-control-next" href="#carouselPending" role="button" data-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="sr-only">Next</span>
+    </a>
+  </div>
+  </div>
+  <% end %>
+
+
+  <h2>Reservation for your Pedalos</h2>
+  <% if @reservations_owner.count.zero? then %>
+  <h3>You have no reservation for your pedalos</h3>
+  <% else %>
+  <div id="carouselOwner" class="carousel slide rounded bg-info m-3" data-ride="carousel">
+    <div class="carousel-inner">
+      <div class="carousel-item active">
+        <div class="d-block w-100 d-flex justify-content-center">
+          <a href="<%= reservations_path(@reservations_owner.first) %>" class="text-reset text-decoration-none">
+            <%= "#{@reservations_owner.first}" %>
+          </a>
+        </div>
+      </div>
+      <% @reservations_owner.drop(1).each do |reservation| %>
+        <div class="carousel-item">
+          <div class="d-block w-100 d-flex justify-content-center">
+            <a href="<%= reservations_path(reservation) %>" class="text-reset text-decoration-none">
+              <%= "#{reservation}" %>
+            </a>
+          </div>
+        </div>
+      <% end %>
+    <a class="carousel-control-prev" href="#carouselOwner" role="button" data-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="sr-only">Previous</span>
+    </a>
+    <a class="carousel-control-next" href="#carouselOwner" role="button" data-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="sr-only">Next</span>
+    </a>
+  </div>
+  </div>
+  <% end %>
+
+  <h2>Your Reservation</h2>
+  <% if @reservations.count.zero? %>
+  <h3>You have no reservations</h3>
+  <% else %>
+  <div id="carouselReservation" class="carousel slide rounded bg-info m-3" data-ride="carousel">
+    <div class="carousel-inner">
+      <div class="carousel-item active">
+        <div class="d-block w-100 d-flex justify-content-center">
+          <a href="<%= reservations_path(@reservations.first) %>" class="text-reset text-decoration-none">
+            <%= "#{@reservations.first}" %>
+          </a>
+        </div>
+      </div>
+      <% @reservations.drop(1).each do |reservation| %>
+        <div class="carousel-item">
+          <div class="d-block w-100 d-flex justify-content-center">
+            <a href="<%= reservations_path(reservation) %>" class="text-reset text-decoration-none">
+              <%= "#{reservation}" %>
+            </a>
+          </div>
+        </div>
+      <% end %>
+    <a class="carousel-control-prev" href="#carouselReservation" role="button" data-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="sr-only">Previous</span>
+    </a>
+    <a class="carousel-control-next" href="#carouselReservation" role="button" data-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="sr-only">Next</span>
+    </a>
+  </div>
+  </div>
+  <% end %>
+
+<% end %>
+
+</div>
