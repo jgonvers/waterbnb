@@ -1,7 +1,9 @@
-<div class="d-flex flex-wrap m-0 p-3  justify-content-center">
-  <% @pedalos.each do |pedalo| %>
-  <a href="<%= pedalo_path(pedalo) %>" class="text-reset text-decoration-none">
-    <%= render 'pedalos/card_pedalo', pedalo: pedalo %>
-  </a>
-  <% end %>
+<div class="container">
+  <div class="d-flex flex-wrap m-0 p-3  justify-content-center">
+    <% @pedalos.each do |pedalo| %>
+    <a href="<%= pedalo_path(pedalo) %>" class="text-reset text-decoration-none">
+      <%= render 'pedalos/card_pedalo', pedalo: pedalo %>
+    </a>
+    <% end %>
+  </div>
 </div>
