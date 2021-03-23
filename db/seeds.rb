@@ -8,6 +8,36 @@
 
 require 'faker'
 
+puts "creating 1 user of each role with role@role.com"
+User.new(
+    first_name: Faker::Name.first_name,
+    last_name: Faker::Name.last_name,
+    password: '1234567',
+    password_confirmation: '1234567',
+    age: (18..99).to_a.sample,
+    email: "customer@customer.com",
+  ).save!
+
+  User.new(
+    first_name: Faker::Name.first_name,
+    last_name: Faker::Name.last_name,
+    password: '1234567',
+    role: 'owner',
+    password_confirmation: '1234567',
+    age: (18..99).to_a.sample,
+    email: "owner@owner.com",
+  ).save!
+
+  User.new(
+    first_name: Faker::Name.first_name,
+    last_name: Faker::Name.last_name,
+    password: '1234567',
+    role: 'admin',
+    password_confirmation: '1234567',
+    age: (18..99).to_a.sample,
+    email: "admin@admin.com",
+  ).save!
+
 puts "creating 20 users"
 20.times do
   User.new(
@@ -42,10 +72,11 @@ puts "creating 10 pedalos"
     name: Faker::Mountain.name,
     description: Faker::Hipster.paragraph,
     price_per_hour: (2500..5000).to_a.sample,
-    owner: owner_list.sample
+    owner: owner_list.sample,
+    location: ['Lausanne', 'Genève', 'Montreux', 'Vevey'].sample,
+    image_link: "pedalos_images/"+("1".."5").to_a.sample+".jpg",
   ).save!
 end
-
 
 puts "creating 10 reservations"
 n = 0
