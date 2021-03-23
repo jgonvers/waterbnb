@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_03_22_162431) do
+ActiveRecord::Schema.define(version: 2021_03_23_092310) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -29,7 +29,7 @@ ActiveRecord::Schema.define(version: 2021_03_22_162431) do
     t.integer "transaction_price"
     t.date "start_time"
     t.date "end_time"
-    t.string "accepted"
+    t.string "accepted", default: "pending"
     t.bigint "user_id", null: false
     t.bigint "pedalo_id", null: false
     t.datetime "created_at", precision: 6, null: false
@@ -41,7 +41,7 @@ ActiveRecord::Schema.define(version: 2021_03_22_162431) do
   create_table "users", force: :cascade do |t|
     t.string "first_name"
     t.string "last_name"
-    t.string "role"
+    t.string "role", default: "client"
     t.integer "age"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
