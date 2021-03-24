@@ -26,20 +26,31 @@
 }
 
 .btn-ok {
-  border: black 1px solid;
-  border-radius: 15px;
-  margin-bottom: 20px;
-}
-
-.btn-bookthatpedalo {
-  color: white;
+  color: black;
   padding: 10px 15px;
-  background-color: #2d4b8b;
+  background-color: white;
   border-radius: 15px;
   text-decoration: none;
+  border: #2d4b8b 1px solid;
 
   &:hover {
     text-decoration: none;
-    color: white
+    color: white;
+    background-color: #2d4b8b;
+  }
+}
+
+.btn-bookthatpedalo {
+  color: black;
+  padding: 10px 15px;
+  background-color: white;
+  border-radius: 15px;
+  text-decoration: none;
+  border: #2d4b8b 1px solid;
+
+  &:hover {
+    text-decoration: none;
+    color: white;
+    background-color: #2d4b8b;
   }
 }
