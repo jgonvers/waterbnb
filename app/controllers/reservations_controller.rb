@@ -31,7 +31,6 @@ class ReservationsController < ApplicationController
     else
       render :new
     end
-    raise
   end
 
   private
