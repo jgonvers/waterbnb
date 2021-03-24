@@ -66,6 +66,17 @@ end
 user_list = User.where(role:"client")
 owner_list = User.where(role:"owner")
 
+puts "creating Unsinkable II"
+
+Pedalo.new(
+  name: "Unsinkable II",
+  description: "This mighty boat will never sink (again).",
+  price_per_hour: (2500..5000).to_a.sample,
+  owner: User.where(email:"owner@owner.com").first,
+  location: ['Lausanne', 'Genève', 'Montreux', 'Vevey'].sample,
+  image_link: "pedalos_images/6.jpg",
+).save!
+
 puts "creating 10 pedalos"
 10.times do
   Pedalo.new(
@@ -78,6 +89,18 @@ puts "creating 10 pedalos"
   ).save!
 end
 
+puts "creating a reservations of the unsinkable"
+date = Time.now
+ped = Pedalo.where(name:"Unsinkable II").first
+Reservation.new(
+  transaction_price: ped.price_per_hour,
+  start_time: date,
+  end_time: date + 3600,
+  accepted: "pending",
+  user: user_list.sample,
+  pedalo: ped,
+).save!
+
 puts "creating 10 reservations"
 n = 0
 10.times do
@@ -88,7 +111,7 @@ n = 0
   Reservation.new(
     transaction_price: ped.price_per_hour * duration,
     start_time: date,
-    end_time: date + 60*60*duration,
+    end_time: date + 3600*duration,
     accepted: "pending",
     user: user_list.sample,
     pedalo: ped,
