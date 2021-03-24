@@ -1,8 +1,15 @@
 .card-pedalo {
-  background-image: linear-gradient(to right top, #ffffff, #fff1ff, #ffe0e2, #ffd9b1, #ebe08c);
+  background-color: white;
   border-radius: 15px;
   width: 450px;
   font-family: Optima, sans-serif;
+  box-shadow: 1px 1px 1px gray;
+  transition: transform .4s 0.1s ease;
+
+    &:hover {
+    transform: scale(1.1);
+    box-shadow: 2px 2px 3px #2F2A61; 
+    }
   
   img {
     border-radius: 8px;
