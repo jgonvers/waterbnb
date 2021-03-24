@@ -2,17 +2,19 @@
   <% if reservation.accepted == "pending" %>
     <i class="far fa-clock text-primary"></i>
   <% elsif reservation.accepted == "accepted" %>
-    <i class="fas fa-check text-danger"></i>
+    <i class="fas fa-check text-success"></i>
   <% else %>
-    <i class="fas fa-times text-success"></i>
+    <i class="fas fa-times text-danger"></i>
   <% end %>
   <div class="ml-3 p-1">
     <h3 class="text-nowrap"><%= reservation.pedalo.name %></h3>
     <h4 class="text-nowrap"><%= reservation.pedalo.location %></h4>
-    <p class="text-nowrap">from: <%= "#{reservation.start_time}"%></p>
-    <p>To: <%= "#{reservation.end_time}"%></p>
-    <% duration = (reservation.end_time - reservation.start_time).fdiv(3600) %>
-    <% cost = duration*reservation.pedalo.price_per_hour %>
-    <p class="text-nowrap"><%= "#{(cost/100).round(2)}" %> CHF/h</p>
+    <p class="text-nowrap">FROM: <%= reservation.start_time.strftime("%A %-d %B %Y %k:%M") %></p>
+    <% duration = (reservation.end_time - reservation.start_time) %>
+    <% minute = ((duration%3600)/60).to_i %>
+    <% hour = (duration/3600).to_i %>
+
+    <p>FOR <%= "#{hour}h" unless hour.zero? %><%= " " if minute != 0 && hour != 0 %><%= "#{minute}mn" unless minute.zero? %></p>
+    <p class="text-nowrap"><%= "#{reservation.transaction_price.fdiv(100).round(2)}" %> CHF</p>
   </div>
 </div>
