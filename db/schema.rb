@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_03_23_151445) do
+ActiveRecord::Schema.define(version: 2021_03_24_095423) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -34,8 +34,8 @@ ActiveRecord::Schema.define(version: 2021_03_23_151445) do
     t.bigint "pedalo_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.time "start_time"
-    t.time "end_time"
+    t.datetime "start_time"
+    t.datetime "end_time"
     t.index ["pedalo_id"], name: "index_reservations_on_pedalo_id"
     t.index ["user_id"], name: "index_reservations_on_user_id"
   end

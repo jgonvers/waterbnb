@@ -9,6 +9,8 @@ class ReservationsController < ApplicationController
   end
 
   def show
+    find_pedalo
+    @reservation = Reservation.find(params[:id])
 
   end
 
