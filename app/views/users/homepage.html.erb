@@ -43,7 +43,7 @@
     <div class="carousel-inner">
       <div class="carousel-item active">
         <div class="d-block w-100 d-flex justify-content-center">
-          <a href="<%= reservations_path(@reservations_owner_pending.first) %>" class="text-reset text-decoration-none">
+          <a href="<%= pedalo_reservation_path(@reservations_owner_pending.first.pedalo, @reservations_owner_pending.first) %>" class="text-reset text-decoration-none">
             <%= render 'reservations/card_reservation', reservation: @reservations_owner_pending.first %>
           </a>
         </div>
@@ -51,7 +51,7 @@
       <% @reservations_owner_pending.drop(1).each do |reservation| %>
         <div class="carousel-item">
           <div class="d-block w-100 d-flex justify-content-center">
-            <a href="<%= reservations_path(reservation) %>" class="text-reset text-decoration-none">
+            <a href="<%= pedalo_reservation_path(reservation.pedalo, reservation) %>" class="text-reset text-decoration-none">
               <%= render 'reservations/card_reservation', reservation: reservation %>
             </a>
           </div>
