@@ -44,7 +44,7 @@
       <div class="carousel-item active">
         <div class="d-block w-100 d-flex justify-content-center">
           <a href="<%= reservations_path(@reservations_owner_pending.first) %>" class="text-reset text-decoration-none">
-            <%= "#{@reservations_owner_pending.first}" %>
+            <%= render 'reservations/card_reservation', reservation: @reservations_owner_pending.first %>
           </a>
         </div>
       </div>
@@ -52,7 +52,7 @@
         <div class="carousel-item">
           <div class="d-block w-100 d-flex justify-content-center">
             <a href="<%= reservations_path(reservation) %>" class="text-reset text-decoration-none">
-              <%= "#{reservation}" %>
+              <%= render 'reservations/card_reservation', reservation: reservation %>
             </a>
           </div>
         </div>
@@ -79,7 +79,7 @@
       <div class="carousel-item active">
         <div class="d-block w-100 d-flex justify-content-center">
           <a href="<%= reservations_path(@reservations_owner.first) %>" class="text-reset text-decoration-none">
-            <%= "#{@reservations_owner.first}" %>
+            <%= render 'reservations/card_reservation', reservation: @reservations_owner.first %>
           </a>
         </div>
       </div>
@@ -87,7 +87,7 @@
         <div class="carousel-item">
           <div class="d-block w-100 d-flex justify-content-center">
             <a href="<%= reservations_path(reservation) %>" class="text-reset text-decoration-none">
-              <%= "#{reservation}" %>
+              <%= render 'reservations/card_reservation', reservation: reservation %>
             </a>
           </div>
         </div>
@@ -113,7 +113,7 @@
       <div class="carousel-item active">
         <div class="d-block w-100 d-flex justify-content-center">
           <a href="<%= reservations_path(@reservations.first) %>" class="text-reset text-decoration-none">
-            <%= "#{@reservations.first}" %>
+            <%= render 'reservations/card_reservation', reservation: @reservations.first %>
           </a>
         </div>
       </div>
@@ -121,7 +121,7 @@
         <div class="carousel-item">
           <div class="d-block w-100 d-flex justify-content-center">
             <a href="<%= reservations_path(reservation) %>" class="text-reset text-decoration-none">
-              <%= "#{reservation}" %>
+              <%= render 'reservations/card_reservation', reservation: reservation %>
             </a>
           </div>
         </div>
