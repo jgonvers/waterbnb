@@ -10,3 +10,18 @@
 .navbar-lewagon .navbar-brand img {
   width: 40px;
 }
+
+#navbar {
+  background: wheat;
+  height: 70px;
+  
+  .nav-link {
+    color: white;
+    background: linear-gradient(to right, #24243e, #302b63, #0f0c29);
+    border-radius: 15px;
+  }
+}
+
+.navbar-brand {
+  background: transparent;
+}
