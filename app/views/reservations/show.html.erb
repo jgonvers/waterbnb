@@ -1,15 +1,39 @@
-<% if @reservation.user_id == current_user.id%>
+<% if @reservation.accepted == "accepted" && @reservation.user_id != current_user.id%>
+  <div class='container-sign-forms' style="width: 800px">
+        <h2><strong>Booking Details: </strong></h2>
+        <h3><span style="color: rgb(232, 4, 209)">Pedalo Rented: </span><strong><%= @pedalo.name%></strong></h3>
+        <h3><span style="color: rgb(232, 4, 209)">Customer Name: </span><strong><%= @reservation.user.first_name%> <%= @reservation.user.last_name %> (<%= @reservation.user.age%> years old)</strong></h3>
+        <h3><span style="color: rgb(232, 4, 209)">Customer Email: </span><strong><%= @reservation.user.email%></strong></h3>
+        <h3><span style="color: rgb(232, 4, 209)">Start Time: </span><strong><%=  @reservation.start_time.strftime("%H:%M (%B %d, %Y)")%></strong></h3>
+        <h3><span style="color: rgb(232, 4, 209)">End Time: </span><strong><%= @reservation.end_time.strftime("%H:%M (%B %d, %Y)") %></strong></h3>
+        <h3><span style="color: rgb(232, 4, 209)">Total Price: </span><strong><%= @reservation.transaction_price.fdiv(100).round(2) %> CHF</strong></h3>
+  </div>
+<% elsif @reservation.accepted == "accepted" && @reservation.user_id == current_user.id%>
+  <div class='container-sign-forms' style="width: 800px">
+        <h2><strong>Booking Details: </strong></h2>
+        <h3><span style="color: rgb(232, 4, 209)">Pedalo Rented: </span><strong><%= @pedalo.name%></strong></h3>
+        <h3><span style="color: rgb(232, 4, 209)">Owner Name: </span><strong><%= @reservation.pedalo.owner.first_name%> <%= @reservation.pedalo.owner.last_name %> (<%= @reservation.user.age%> years old)</strong></h3>
+        <h3><span style="color: rgb(232, 4, 209)">Owner Email: </span><strong><%= @reservation.pedalo.owner.email%></strong></h3>
+        <h3><span style="color: rgb(232, 4, 209)">Start Time: </span><strong><%=  @reservation.start_time.strftime("%H:%M (%B %d, %Y)")%></strong></h3>
+        <h3><span style="color: rgb(232, 4, 209)">End Time: </span><strong><%= @reservation.end_time.strftime("%H:%M (%B %d, %Y)") %></strong></h3>
+        <h3><span style="color: rgb(232, 4, 209)">Request Status: </span><strong><%= @reservation.accepted.capitalize()%></strong></h3>
+        <h3><span style="color: rgb(232, 4, 209)">Total Price: </span><strong><%= @reservation.transaction_price.fdiv(100).round(2) %> CHF</strong></h3>
+  </div>
+<% elsif @reservation.user_id == current_user.id%>
 
-    <div class='container-sign-forms' style="width: 700px">
-      <h2>Thank you for booking <span style="color: rgb(232, 4, 209)"><%= @pedalo.name %></span>!</h2>
+    <div class='container-sign-forms' style="width: 800px">
+      <h2>Thanks for booking <span style="color: rgb(232, 4, 209)"><%= @pedalo.name%></span> !</h2>
       <h2>Your booking details:</h2>
+      <h3><span style="color: rgb(232, 4, 209)">Owner Name: </span><strong><%= @reservation.pedalo.owner.first_name%> <%= @reservation.pedalo.owner.last_name %> (<%= @reservation.user.age%> years old)</strong></h3>
+      <h3><span style="color: rgb(232, 4, 209)">Owner Email: </span><strong><%= @reservation.pedalo.owner.email%></strong></h3>
       <h3><span style="color: rgb(232, 4, 209)">Start Time: </span><strong><%=  @reservation.start_time.strftime("%H:%M (%B %d, %Y)")%></strong></h3>
       <h3><span style="color: rgb(232, 4, 209)">End Time: </span><strong><%= @reservation.end_time.strftime("%H:%M (%B %d, %Y)") %></strong></h3>
+      <h3><span style="color: rgb(232, 4, 209)">Request Status: </span><strong><%= @reservation.accepted.capitalize()%></strong></h3>
       <h3><span style="color: rgb(232, 4, 209)">Total Price: </span><strong><%= @reservation.transaction_price.fdiv(100).round(2) %> CHF</strong></h3>
     </div>
-  <% else %>
+<% elsif %>
 
-  <div class='container-sign-forms' style="width: 800px">
+<div class='container-sign-forms' style="width: 800px">
       <h2><span><%= @reservation.user.first_name%> <%= @reservation.user.last_name %> </span>requests to rent your pedalo <span style="color: rgb(232, 4, 209)"><%= @pedalo.name %></span>!</h2>
       <h2>See booking details:</h2>
       <h3><span style="color: rgb(232, 4, 209)">Customer Name: </span><strong><%= @reservation.user.first_name%> <%= @reservation.user.last_name %> (<%= @reservation.user.age%> years old)</strong></h3>
