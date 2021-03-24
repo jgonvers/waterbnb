@@ -29,10 +29,17 @@
   border: black 1px solid;
   border-radius: 15px;
   margin-bottom: 20px;
-
-  &:hover {
-    background: rgb(232, 4, 209);
-  }
 }
 
+.btn-bookthatpedalo {
+  color: white;
+  padding: 10px 15px;
+  background-color: #2d4b8b;
+  border-radius: 15px;
+  text-decoration: none;
 
+  &:hover {
+    text-decoration: none;
+    color: white
+  }
+}

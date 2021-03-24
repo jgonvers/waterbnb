@@ -5,7 +5,7 @@
   <% if @pedalos.count.zero? then %>
   <h3>You have no pedalo... :(  </h3>
   <% else %>
-  <div id="carouselPedalo" class="carousel slide rounded m-3" data-ride="carousel">
+  <div id="carouselPedalo" class="carousel slide rounded m-3">
     <div class="carousel-inner">
       <div class="carousel-item active">
         <div class="d-block w-100 d-flex justify-content-center">
@@ -35,11 +35,11 @@
   </div>
   <% end %>
 
-  <h2 style='color: white'>Pending Reservation for your Pedalo(s)</h2>
+  <h2 style='color: white'>Pending Reservation(s) for your Pedalo(s)</h2>
   <% if @reservations_owner_pending.count.zero? then %>
   <h3 style='color: white'>You have no reservation pending</h3>
   <% else %>
-  <div id="carouselPending" class="carousel slide rounded m-3" data-ride="carousel">
+  <div id="carouselPending" class="carousel slide rounded m-3">
     <div class="carousel-inner">
       <div class="carousel-item active">
         <div class="d-block w-100 d-flex justify-content-center">
@@ -70,11 +70,11 @@
   <% end %>
 
 
-  <h2 style='color: white'>Reservation(s) for your Pedalos</h2>
+  <h2 style='color: white'>Confirmed Reservation(s) for your Pedalos</h2>
   <% if @reservations_owner.count.zero? then %>
   <h3 style='color: white'>You have no reservation for your pedalos</h3>
   <% else %>
-  <div id="carouselOwner" class="carousel slide rounded m-3" data-ride="carousel">
+  <div id="carouselOwner" class="carousel slide rounded m-3">
     <div class="carousel-inner">
       <div class="carousel-item active">
         <div class="d-block w-100 d-flex justify-content-center">
@@ -110,7 +110,7 @@
   <% if @reservations.count.zero? %>
   <h3 style='color: white'>You have no reservations</h3>
   <% else %>
-  <div id="carouselReservation" class="carousel slide rounded m-3" data-ride="carousel">
+  <div id="carouselReservation" class="carousel slide rounded m-3">
     <div class="carousel-inner">
       <div class="carousel-item active">
         <div class="d-block w-100 d-flex justify-content-center">
