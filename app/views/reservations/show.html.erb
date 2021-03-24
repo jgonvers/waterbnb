@@ -30,17 +30,19 @@
       <h3><span style="color: rgb(232, 4, 209)">End Time: </span><strong><%= @reservation.end_time.strftime("%H:%M (%B %d, %Y)") %></strong></h3>
       <h3><span style="color: rgb(232, 4, 209)">Request Status: </span><strong><%= @reservation.accepted.capitalize()%></strong></h3>
       <h3><span style="color: rgb(232, 4, 209)">Total Price: </span><strong><%= @reservation.transaction_price.fdiv(100).round(2) %> CHF</strong></h3>
+
     </div>
 <% elsif %>
+
 
 <div class='container-sign-forms' style="width: 800px">
       <h2><span><%= @reservation.user.first_name%> <%= @reservation.user.last_name %> </span>requests to rent your pedalo <span style="color: rgb(232, 4, 209)"><%= @pedalo.name %></span>!</h2>
       <h2>See booking details:</h2>
-      <h3><span style="color: rgb(232, 4, 209)">Customer Name: </span><strong><%= @reservation.user.first_name%> <%= @reservation.user.last_name %> (<%= @reservation.user.age%> years old)</strong></h3>
-      <h3><span style="color: rgb(232, 4, 209)">Customer Email: </span><strong><%= @reservation.user.email%></strong></h3>
-      <h3><span style="color: rgb(232, 4, 209)">Start Time: </span><strong><%=  @reservation.start_time.strftime("%H:%M (%B %d, %Y)")%></strong></h3>
-      <h3><span style="color: rgb(232, 4, 209)">End Time: </span><strong><%= @reservation.end_time.strftime("%H:%M (%B %d, %Y)") %></strong></h3>
-      <h3><span style="color: rgb(232, 4, 209)">Total Price: </span><strong><%= @reservation.transaction_price.fdiv(100).round(2) %> CHF</strong></h3>
+      <h3><span style="color: #2d4b8b">Customer Name: </span><strong><%= @reservation.user.first_name%> <%= @reservation.user.last_name %> (<%= @reservation.user.age%> years old)</strong></h3>
+      <h3><span style="color: #2d4b8b">Customer Email: </span><strong><%= @reservation.user.email%></strong></h3>
+      <h3><span style="color: #2d4b8b">Start Time: </span><strong><%=  @reservation.start_time.strftime("%H:%M (%B %d, %Y)")%></strong></h3>
+      <h3><span style="color: #2d4b8b">End Time: </span><strong><%= @reservation.end_time.strftime("%H:%M (%B %d, %Y)") %></strong></h3>
+      <h3><span style="color: #2d4b8b">Total Price: </span><strong><%= @reservation.transaction_price.fdiv(100).round(2) %> CHF</strong></h3>
       <%= simple_form_for [@pedalo, @reservation], url: pedalo_reservation_path(@pedalo.id, @reservation.id), method: :patch do |f| %>
       <div class="form-inputs mt-5">
       <%= f.input :accepted, :label => "Do you want to accept this request ?", :collection => ['accepted', 'pending', 'declined'] %>
