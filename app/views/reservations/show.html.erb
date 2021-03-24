@@ -1,7 +1,7 @@
 <div class='container-sign-forms' style="width: 700px">
   <h2>Thank you for booking <span style="color: rgb(232, 4, 209)"><%= @pedalo.name %></span>!</h2>
   <h2>Your booking details:</h2>
-  <h3><span style="color: rgb(232, 4, 209)">Start Time: </span>insert start time</h3>
-  <h3><span style="color: rgb(232, 4, 209)">End Time: </span>insert end time</h3>
-  <h3><span style="color: rgb(232, 4, 209)">Total Price: </span> insert price</h3>
+  <h3><span style="color: rgb(232, 4, 209)">Start Time: </span><strong><%=  @reservation.start_time%></strong></h3>
+  <h3><span style="color: rgb(232, 4, 209)">End Time: </span><strong><%= @reservation.end_time %></strong></h3>
+  <h3><span style="color: rgb(232, 4, 209)">Total Price: </span><strong><%= @reservation.transaction_price %> CHF</strong></h3>
 </div>

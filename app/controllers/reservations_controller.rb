@@ -9,6 +9,8 @@ class ReservationsController < ApplicationController
   end
 
   def show
+    find_pedalo
+    @reservation = Reservation.find(params[:id])
 
   end
 
@@ -29,6 +31,7 @@ class ReservationsController < ApplicationController
     else
       render :new
     end
+    raise
   end
 
   private
