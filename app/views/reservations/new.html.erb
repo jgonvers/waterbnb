@@ -1,7 +1,12 @@
-<h1>Book <strong><%= @pedalo.name %></strong> for: <strong><%= @date %></strong></h1>
+<div class='container-sign-forms'>
 
-<%= simple_form_for [@pedalo, @reservation] do |f| %>
-  <%= f.input :start_time %>
-  <%= f.input :end_time %>
-  <%= f.submit "Book it!", class: "btn btn-primary" %>
-<% end %>
+  <h2 class='header-signup'>Book <span><%= @pedalo.name %></span> for: <strong><%= @date %></strong></h2>
+
+  <%= simple_form_for [@pedalo, @reservation] do |f| %>
+    <div class="form-inputs">
+    <%= f.input :start_time, :label => "Start-time" %>
+    <%= f.input :end_time, :label => "End-time" %>
+    <%= f.submit "Book it!", class: 'btn-ok p-2 px-3' %>
+    </div>
+  <% end %>
+</div>
