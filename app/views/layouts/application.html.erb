@@ -13,7 +13,16 @@
   </head>
 
   <body>
-    <%= link_to("Log out", destroy_user_session_path, method: :delete) %>
+    <nav class="navbar navbar-light bg-secondary">
+      <a class="navbar-brand text-primary" href="<%= pedalos_path %>">WaterBNB</a>
+      <!--<div class="collapse navbar-collapse" id="navbarNavAltMarkup">-->
+        <div class="navbar-nav d-flex flex-row">
+          <a class="nav-link nav-item  btn-primary rounded m-1 ml-2 mr-2 pl-2 pr-2" href="<%= pedalos_path %>">Pedalos</a>
+          <a class="nav-link nav-item btn-primary rounded m-1 ml-2 mr-2 pl-2 pr-2" href="/user">user</a>
+          <%= link_to("Log out", destroy_user_session_path, method: :delete, class: "nav-link nav-item btn-primary rounded m-1 ml-2 mr-2 pl-2 pr-2") %>
+        </div>
+      <!--</div>-->
+    </nav>
     <p class="notice"><%= notice %></p>
     <p class="alert"><%= alert %></p>
     <%= yield %>

@@ -11,4 +11,8 @@
 // Your CSS partials
 @import "components/index";
 @import "pages/index";
-@import "components/card_pedalo";
+
+
+body {
+  background-color: lightblue;
+}
