@@ -9,9 +9,10 @@
   <div class="ml-3 p-1">
     <h3 class="text-nowrap"><%= reservation.pedalo.name %></h3>
     <h4 class="text-nowrap"><%= reservation.pedalo.location %></h4>
-    <p class="text-nowrap">from <%= "#{reservation.start_time}"%> to <%= "#{reservation.end_time}"%><p>
-    <% duration = reservation.end_time - reservation.start_time %>
-    <% cost = duration*reservation.pedalo.price_per_hour %> 
-    <p class="text-nowrap"><%= "#{cost/100}.#{cost%100}" %> CHF/h</p>
+    <p class="text-nowrap">from: <%= "#{reservation.start_time}"%></p>
+    <p>To: <%= "#{reservation.end_time}"%></p>
+    <% duration = (reservation.end_time - reservation.start_time).fdiv(3600) %>
+    <% cost = duration*reservation.pedalo.price_per_hour %>
+    <p class="text-nowrap"><%= "#{(cost/100).round(2)}" %> CHF/h</p>
   </div>
 </div>
