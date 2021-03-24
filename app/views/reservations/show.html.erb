@@ -5,7 +5,7 @@
       <h2>Your booking details:</h2>
       <h3><span style="color: rgb(232, 4, 209)">Start Time: </span><strong><%=  @reservation.start_time.strftime("%H:%M (%B %d, %Y)")%></strong></h3>
       <h3><span style="color: rgb(232, 4, 209)">End Time: </span><strong><%= @reservation.end_time.strftime("%H:%M (%B %d, %Y)") %></strong></h3>
-      <h3><span style="color: rgb(232, 4, 209)">Total Price: </span><strong><%= @reservation.transaction_price %> CHF</strong></h3>
+      <h3><span style="color: rgb(232, 4, 209)">Total Price: </span><strong><%= @reservation.transaction_price.fdiv(100).round(2) %> CHF</strong></h3>
     </div>
   <% else %>
 
@@ -16,7 +16,7 @@
       <h3><span style="color: rgb(232, 4, 209)">Customer Email: </span><strong><%= @reservation.user.email%></strong></h3>
       <h3><span style="color: rgb(232, 4, 209)">Start Time: </span><strong><%=  @reservation.start_time.strftime("%H:%M (%B %d, %Y)")%></strong></h3>
       <h3><span style="color: rgb(232, 4, 209)">End Time: </span><strong><%= @reservation.end_time.strftime("%H:%M (%B %d, %Y)") %></strong></h3>
-      <h3><span style="color: rgb(232, 4, 209)">Total Price: </span><strong><%= @reservation.transaction_price %> CHF</strong></h3>
+      <h3><span style="color: rgb(232, 4, 209)">Total Price: </span><strong><%= @reservation.transaction_price.fdiv(100).round(2) %> CHF</strong></h3>
       <%= simple_form_for [@pedalo, @reservation], url: pedalo_reservation_path(@pedalo.id, @reservation.id), method: :patch do |f| %>
       <div class="form-inputs mt-5">
       <%= f.input :accepted, :label => "Do you want to accept this request ?", :collection => ['accepted', 'pending', 'declined'] %>
