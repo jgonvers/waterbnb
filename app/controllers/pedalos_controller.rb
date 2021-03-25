@@ -14,6 +14,7 @@ class PedalosController < ApplicationController
 
   def create
     @pedalo = Pedalo.new(pedalo_params)
+    @pedalo.owner = current_user
     if @pedalo.save
       redirect_to pedalos_path
     else
