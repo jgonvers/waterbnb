@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_03_25_111816) do
+ActiveRecord::Schema.define(version: 2021_03_25_112406) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -26,6 +26,7 @@ ActiveRecord::Schema.define(version: 2021_03_25_111816) do
     t.string "image_link", default: "\"/assets/images/pedalos_images/default.png"
     t.float "latitude"
     t.float "longitude"
+    t.string "Address"
     t.index ["owner_id"], name: "index_pedalos_on_owner_id"
   end
 
