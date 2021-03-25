@@ -1,18 +1,22 @@
-<div class="d-flex p-3 m-3 flex-row border justify-content-between align-items-center card-reservation">
-  <%= image_tag(reservation.pedalo.image_link, class: "rounded m-2") %>
+<div class="d-flex m-3 flex-row border justify-content-between align-items-center card-reservation">
+  <%= image_tag(reservation.pedalo.image_link) %>
   <div class="ml-3 p-1">
     <h3 class="text-nowrap"><%= reservation.pedalo.name %></h3>
     <h4 class="text-nowrap"><%= reservation.pedalo.location %></h4>
     <div class="d-flex flex-row .justify-content-start align-items-center">
-      <p class="text-nowrap"><bold>FROM</bold>: <%= reservation.start_time.strftime("%-d %B %Y %k:%M") %></p>
-      <p class="text-nowrap ml-2"></bold>TO<bold>: <%= reservation.end_time.strftime("%-d %B %Y %k:%M") %></p>
+      <p class="text-nowrap"><strong>FROM</strong>: <%= reservation.start_time.strftime("%k:%M") %></p>
+      <p class="text-nowrap ml-2"><strong>TO</strong>: <%= reservation.end_time.strftime("%k:%M") %></p>
       <% duration = (reservation.end_time - reservation.start_time) %>
       <% minute = ((duration%3600)/60).to_i %>
       <% hour = (duration/3600).to_i %>
-      <p class="text-nowrap ml-2"><bold>DURATION</bold>: <%= "#{hour}h" unless hour.zero? %><%= " " if minute != 0 && hour != 0 %><%= "#{minute}mn" unless minute.zero? %></p>
+      <p class="text-nowrap ml-2"><strong>DURATION</strong>: <%= "#{hour}h" unless hour.zero? %><%= " " if minute != 0 && hour != 0 %><%= "#{minute}mn" unless minute.zero? %></p>
     </div>
-    <p class="text-nowrap"><bold>PRICE</bold>: <%= "#{reservation.transaction_price.fdiv(100).round(2)}" %> CHF</p>
+    <div class="d-flex flex-row .justify-content-start align-items-center">
+      <p class="text-nowrap"><strong>DATE</strong>: <%= reservation.start_time.strftime("%-d %B %Y") %></p>
+      <p class="text-nowrap ml-2"><strong>PRICE</strong>: <%= "#{reservation.transaction_price.fdiv(100).round(2)}" %> CHF</p>
+    </div>
   </div>
+  <div class="mr-4">
   <% if reservation.accepted == "pending" %>
     <i class="far fa-clock text-primary"></i>
   <% elsif reservation.accepted == "accepted" %>
@@ -20,4 +24,5 @@
   <% else %>
     <i class="fas fa-times text-danger"></i>
   <% end %>
+  </div>
 </div>
