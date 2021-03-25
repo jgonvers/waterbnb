@@ -22,8 +22,22 @@ class PedalosController < ApplicationController
   end
 
   def new
+    @pedalo = Pedalo.new
   end
 
   def create
+    @pedalo = Pedalo.new(pedalo_params)
+    @pedalo.owner = current_user
+    if @pedalo.save
+      redirect_to pedalos_path
+    else
+      render :new
+    end
   end
-end
+  
+  private
+
+  def pedalo_params
+    params.require(:pedalo).permit(:name, :description, :price_per_hour, :location, :photo)
+  end
+

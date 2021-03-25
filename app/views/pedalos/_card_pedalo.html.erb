@@ -1,9 +1,11 @@
 
-<div class="d-flex p-3 m-3 flex-row border align-items-center card-pedalo">
+<div class="d-flex m-3 flex-row justify-content-start align-items-center card-pedalo">
   <%= image_tag(pedalo.image_link) %>
   <div class="ml-3 p-1">
     <h3 class="text-nowrap"><%= pedalo.name %></h3>
     <h4 class="text-nowrap"><%= pedalo.location %></h4>
-    <p class="text-nowrap"><%= "#{pedalo.price_per_hour/100}.#{pedalo.price_per_hour%100}" %> CHF/h</p>
+    <p class="text-nowrap"><strong>PRICE</strong> <%= "#{pedalo.price_per_hour/100}.#{pedalo.price_per_hour%100}" %> CHF/h</p>
+    <p>STAR RATING GOES HERE</p>
   </div>
+  <!--<div></div>-->
 </div>

@@ -1,0 +1,23 @@
+.form-addpedalo {
+  width: auto;
+  margin: 40px 200px;
+  padding: 30px;
+  border: #2d4b8b 10px dotted;
+  background: linear-gradient(to right, rgba(255,255,255,1) 0%, rgba(246,246,246,1) 47%, rgba(237,237,237,1) 100%);
+  color: #2d4b8b;
+
+  .btn-submit {
+    margin-top: 15px;
+  }
+}
+
+.header-form {
+  font-size: 32px;
+  text-align: center;
+  margin: 30px auto;
+  width: 700px;
+  border: solid 2px #2d4b8b;
+  border-radius: 20px;
+  padding: 15px 10px;
+  background: linear-gradient(to right, rgba(255,255,255,1) 0%, rgba(246,246,246,1) 47%, rgba(237,237,237,1) 100%);
+}
