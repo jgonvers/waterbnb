@@ -1,8 +1,8 @@
 .card-pedalo {
   background: white;
-  border-radius: 8px;
+  border-radius: 4px;
   height: 175px;
-  width: 500px;
+  width: 420px;
   font-family: Optima, sans-serif;
   box-shadow: 1px 1px 1px gray;
   transition: transform .4s 0.1s ease;
@@ -13,12 +13,12 @@
 
   &:hover {
     transform: scale(1.1);
-    box-shadow: 2px 2px 3px #2F2A61; 
+    box-shadow: 2px 2px 3px #2F2A61;
     }
-  
+
   img {
      height: 175px;
      width: 175px;
-     border-radius: 8px
+     border-radius: 4px
   }
 }
