@@ -32,3 +32,11 @@ document.addEventListener('turbolinks:load', () => {
   // Call your functions here, e.g:
   // initSelect2();
 });
+
+// Geocalisation
+import { initMapbox } from '../plugins/init_mapbox';
+import 'mapbox-gl/dist/mapbox-gl.css';
+
+document.addEventListener('turbolinks:load', () => {
+  initMapbox();
+})

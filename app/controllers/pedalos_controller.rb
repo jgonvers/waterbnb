@@ -12,12 +12,12 @@ class PedalosController < ApplicationController
 
   def show
     @pedalo = Pedalo.find(params[:id])
-    @marker = @pedalo.geocoded.map do |pedalo|
-      {
-        lat: pedalo.latitude,
-        lng: pedalo.longitude
-      }
-    end
+    # @marker = @pedalo.geocoded.map do |pedalo|
+    #   {
+    #     lat: pedalo.latitude,
+    #     lng: pedalo.longitude
+    #   }
+    # end
   end
 
   def new
