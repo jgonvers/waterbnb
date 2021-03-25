@@ -15,16 +15,20 @@
   </head>
 
   <body>
-    <nav class="navbar navbar-light" id="navbar">
-      <a id="navbar-redirect-home" class="navbar-brand" href="<%= root_path %>">WaterBNB</a>
-      <!--<div class="collapse navbar-collapse" id="navbarNavAltMarkup">-->
-        <div class="navbar-nav d-flex flex-row">
-          <a class="nav-link nav-item m-1 ml-2 mr-2 pl-2 pr-2" href="<%= pedalos_path %>">Find a pedalo</a>
-          <a class="nav-link nav-item m-1 ml-2 mr-2 pl-2 pr-2" href="/user">My Page</a>
-          <%= link_to("Log out", destroy_user_session_path, method: :delete, class: "nav-link nav-item m-1 ml-2 mr-2 pl-2 pr-2") %>
+    <div class="pos-f-t">
+      <div class="collapse" id="navbarToggleExternalContent">
+        <div class="bg-dark p-4">
+          <h4 class="text-white">Collapsed content</h4>
+          <span class="text-muted">Toggleable via the navbar brand.</span>
         </div>
-      <!--</div>-->
-    </nav>
+      </div>
+      <nav class="navbar navbar-dark bg-dark">
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggleExternalContent" aria-controls="navbarToggleExternalContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <img :src="jennifer" alt="avatar image" class="rounded-circle"/>
+      </nav>
+    </div>
     <% unless notice.nil? %>
     <p class="alert alert-info"><%= notice %></p>
     <% end %>
