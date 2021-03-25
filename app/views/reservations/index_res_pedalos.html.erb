@@ -1,0 +1,5 @@
+<div class="container">
+  <% @sorted_reservations.each do |reservation| %>
+    <%= render 'reservations/card_reservation', reservation: reservation %>
+  <% end %>
+</div>
