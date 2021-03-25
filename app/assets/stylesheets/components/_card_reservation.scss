@@ -1,10 +1,15 @@
 .card-reservation {
   background: white;
-  border-radius: 15px;
-  width: 450px;
+  border-radius: 8px;
+  height: 175px;
+  width: 675px;
   font-family: Optima, sans-serif;
   box-shadow: 1px 1px 1px gray;
   transition: transform .4s 0.1s ease;
+
+  h3 {
+    font-weight: bold;
+  }
 
   &:hover {
     transform: scale(1.1);
@@ -12,7 +17,11 @@
     }
   
   i {
-    border-radius: 8px;
-    font-size: 100px;
+    font-size: 50px;
   }
+   img {
+     height: 175px;
+     width: 175px;
+     border-radius: 8px
+   }
 }
