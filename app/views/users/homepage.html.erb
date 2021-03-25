@@ -1,8 +1,8 @@
 <div class="container">
 
 <% if ["owner", "admin"].include? current_user.role then %>
-  <% @reservations_owner.each do |reservation| %>
-  <%= render 'reservations/card_reservation', reservation: reservation %>
+  <% Review.all.each do |reservation| %>
+  <%= render 'reviews/card_review', review: reservation %>
   <% end %>
 <% end %>
 </div>
