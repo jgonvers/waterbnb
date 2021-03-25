@@ -22,11 +22,15 @@
   border-radius: 15px;
   text-decoration: none;
   border: #2d4b8b 1px solid;
-  transition: background 0.3s ease;
+  transform: scale(1.15);
+  overflow: hidden;
+  transition: all .6s;
 
   &:hover {
     text-decoration: none;
     color: white;
+    transform: scale(1.03);
+    filter: none;
     background-color: #2d4b8b;
   }
 }
