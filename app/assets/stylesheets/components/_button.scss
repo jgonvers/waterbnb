@@ -1,17 +1,5 @@
-.btn-ghost {
-  color: #4A4A4A;
-  border: 1px solid #4A4A4A;
-  padding: 8px 24px;
-  border-radius: 50px;
-  font-weight: lighter;
-  opacity: 0.6;
-  transition: opacity 0.3s ease;
-}
 
-.btn-ghost:hover {
-  opacity: 1;
-}
-
+/*.btn-flat uniquement applicable au bouton rose de la homepage */
 .btn-flat {
   color: white;
   padding: 8px 24px;
@@ -25,28 +13,16 @@
   color: white;
 }
 
-.btn-ok {
+/*__________________________________________________________________*/
+
+.btn-submit {
   color: black;
   padding: 10px 15px;
   background-color: white;
   border-radius: 15px;
   text-decoration: none;
   border: #2d4b8b 1px solid;
-
-  &:hover {
-    text-decoration: none;
-    color: white;
-    background-color: #2d4b8b;
-  }
-}
-
-.btn-bookthatpedalo {
-  color: black;
-  padding: 10px 15px;
-  background-color: white;
-  border-radius: 15px;
-  text-decoration: none;
-  border: #2d4b8b 1px solid;
+  transition: background 0.3s ease;
 
   &:hover {
     text-decoration: none;
