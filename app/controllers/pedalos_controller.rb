@@ -25,6 +25,6 @@ class PedalosController < ApplicationController
   private
 
   def pedalo_params
-    params.require(:pedalo).permit(:name, :description, :price_per_hour, :location) #:photo
+    params.require(:pedalo).permit(:name, :description, :price_per_hour, :location, :photo)
   end
 end
