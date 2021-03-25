@@ -7,7 +7,7 @@
       <li>2 - Proceed with the booking</li>
       <li>3 - Have fun and don't forget your life jacket!</li>
     </ul>
-    
+
   </div>
 </div>
 <div class="container-index">
@@ -18,4 +18,10 @@
     </a>
     <% end %>
   </div>
+</div>
+
+<div id="map"
+     style="width: 100%; height: 600px;"
+     data-markers="<%= @markers.to_json %>"
+     data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
 </div>
