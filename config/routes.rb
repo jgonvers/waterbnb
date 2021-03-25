@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   devise_for :users
   root to: 'pages#home'
-  # get "/users", to: "users#homepage"
+  get "/user", to: "users#homepage"
   resources :pedalos, only: [:index, :show, :new, :create]
   
   get "/pedalos/:pedalo_id/reservations", to: "reservations#index_res_pedalos", as: :pedalo_reservations
