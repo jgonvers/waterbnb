@@ -1,26 +1,30 @@
 
+
 <div class="hero-image">
   <div class="hero-text">
-    <h1>Welcome to Waterbnb!</h1>
-    <ul>
+    <h1>Welcome to Waterbnb <%= current_user.first_name %> !</h1>
+<!--     <ul>
       <li>1 - Click on the pedalo of your choice</li>
       <li>2 - Proceed with the booking</li>
       <li>3 - Have fun and don't forget your life jacket!</li>
-    </ul>
+    </ul> -->
 
   </div>
 </div>
-<div class="container-index">
-  <div class="d-flex flex-wrap m-0 p-3  justify-content-center">
-    <% @pedalos.each do |pedalo| %>
-    <a href="<%= pedalo_path(pedalo) %>" class="text-reset text-decoration-none">
-      <%= render 'pedalos/card_pedalo', pedalo: pedalo %>
-    </a>
-    <% end %>
+<div class="main-container">
+  <div class="container-index">
+    <div class="d-flex flex-wrap justify-content-center">
+      <% @pedalos.each do |pedalo| %>
+      <a href="<%= pedalo_path(pedalo) %>" class="text-reset text-decoration-none">
+        <%= render 'pedalos/card_pedalo', pedalo: pedalo %>
+      </a>
+      <% end %>
+    </div>
+  </div>
+
+  <div id="map"
+       data-markers="<%= @markers.to_json %>"
+       data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
+
   </div>
 </div>
-
-<div id="map"
-     style="width: 1000px; height: 600px;"
-     data-markers="<%= @markers.to_json %>"
-     data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"></div>
