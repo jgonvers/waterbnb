@@ -5,7 +5,8 @@ class PedalosController < ApplicationController
     @markers = @pedalos.geocoded.map do |pedalo|
       {
         lat: pedalo.latitude,
-        lng: pedalo.longitude
+        lng: pedalo.longitude,
+        infoWindow: render_to_string(partial: "info_window", locals: { pedalo: pedalo })
       }
     end
   end
