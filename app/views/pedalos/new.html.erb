@@ -1,0 +1,11 @@
+<h1 class="header-form">Fill out this form to add your pedalo!</h1>
+
+<div class='form-addpedalo'>
+  <%= simple_form_for @pedalo do |f| %>
+    <%= f.input :name %>
+    <%= f.input :description %>
+    <%= f.input :price_per_hour, placeholder: 'Minimum amount of 15 CHF' %>
+    <%=f.input :photo, as: :file %>
+    <%= f.submit "Submit!", class: 'btn-ok' %>
+  <% end %>
+</div>
