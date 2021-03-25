@@ -5,7 +5,7 @@
     <p><%= @pedalo.description %></p>
     <p><strong><%= @pedalo.price_per_hour / 100 %> CHF per hour</strong></p>
     <p>Owner's name: <%= @pedalo.owner.first_name %> <%= @pedalo.owner.last_name %></p>
-    <a class='btn-bookthatpedalo' href="<%= new_pedalo_reservation_path(@pedalo) %>">Book that pedalo!</a>
+    <a class='btn-submit' href="<%= new_pedalo_reservation_path(@pedalo) %>">Book that pedalo!</a>
   </div>
 </div>
 
