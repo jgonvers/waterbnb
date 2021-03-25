@@ -35,6 +35,10 @@ gem 'autoprefixer-rails'
 gem 'font-awesome-sass'
 gem 'simple_form'
 
+# Geocoding
+
+gem 'geocoder'
+
 #Faker for seed
 gem 'faker'
 

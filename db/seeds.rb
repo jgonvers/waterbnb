@@ -72,6 +72,7 @@ Pedalo.new(
   name: "Unsinkable II",
   description: "This mighty boat will never sink (again).",
   price_per_hour: (2500..5000).to_a.sample,
+  address: 'Avenue Général Guisan 121b, 1009 Pully, Switzerland',
   owner: User.where(email:"owner@owner.com").first,
   location: ['Lausanne', 'Genève', 'Montreux', 'Vevey'].sample,
   image_link: "pedalos_images/6.jpg",
@@ -82,6 +83,7 @@ puts "creating 10 pedalos"
   Pedalo.new(
     name: Faker::Mountain.name,
     description: Faker::Hipster.paragraph,
+    address: ['Club Nautique Morgien, Place de la Navigation, 1110 Morges, Switzerland', 'Rue du Pont-Levis 5, 1162 Saint-Prex, Switzerland', 'Chemin du Riau 4a, 1162 Saint-Prex, Switzerland', 'Route de la Plage, 1165 Allaman, Switzerland', 'Route du Pralet 8, 1195 Dully, Switzerland', 'Rue de la Colombière 9, 1260 Nyon, Switzerland', 'Route du Port 4, 1009 Pully, Switzerland', 'Avenue Général Guisan 121b, 1009 Pully, Switzerland', 'Avenue de Rhodanie 15, 1007 Lausanne, Switzerland', 'Avenue Emile-Henri-Jaques-Dalcroze, 1007 Lausanne, Switzerland', 'Chemin des Brunette, 1091 Bourg-en-Lavaux, Switzerland', 'Grand-Rue 44, 1095 Lutry, Switzerland', 'Avenue Emile-Henri-Jaques-Dalcroze, 1007 Lausanne, Switzerland', 'Chemin de Chamblandes 32, 1009 Pully, Switzerland', 'Chemin de la Pouponnière 4, 1822 Montreux, Switzerland', 'Pourquoi Aller Plus Loin, Avenue de Chillon, 1823 Montreux, Switzerland'].sample,
     price_per_hour: (2500..5000).to_a.sample,
     owner: owner_list.sample,
     location: ['Lausanne', 'Genève', 'Montreux', 'Vevey'].sample,
