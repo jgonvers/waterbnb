@@ -1,7 +1,7 @@
 <div class='container-show-pedalo'>
 
   <div class='content-show'>
-    <h2 id="title_show"><strong><%= @pedalo.name %></strong></h2>
+    <h2 id="title_show"><strong><%= @pedalo.name %></strong> (<%= @pedalo.price_per_hour.fdiv(100).round(2) %> CHF per hour)</h2>
     <% if @pedalo.photo.attached? %>
       <%= cl_image_tag @pedalo.photo.key %>
     <% end %>

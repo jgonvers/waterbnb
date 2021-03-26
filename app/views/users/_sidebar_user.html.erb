@@ -11,8 +11,11 @@
   <br>
   <% unless current_user.role == "client" %>
     <div class="w-100 d-flex align-items-center flex-column">
-      <%= link_to 'See your Pedalos', pedalos_path , id: "btn-sidebar" %>
+
+      <%= link_to 'See your Pedalos', user_pedalos_path , id: "btn-sidebar" %>
       <%= link_to 'Add a Pedalo', new_pedalo_path, id: "btn-sidebar" %>
+      <%= link_to 'See your Reservations', user_path , id: "btn-sidebar" %>
+
     </div>
   <% end %>
 </div>
