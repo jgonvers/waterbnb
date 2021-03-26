@@ -101,8 +101,13 @@ unsinkable.photo.attach(io: file, filename: 'unsinkable.jpg', content_type: 'ima
 
 puts "creating 10 pedalos"
 10.times do
+  name = ""
+  while name.length <= 4 do
+    name = Faker::Mountain.name
+    puts "trying #{name} for pedalo name"
+  end
   pedalo1 = Pedalo.new(
-      name: Faker::Mountain.name,
+      name: name,
       description: Faker::Hipster.paragraph,
       address: ['Club Nautique Morgien, Place de la Navigation, 1110 Morges, Switzerland', 'Rue du Pont-Levis 5, 1162 Saint-Prex, Switzerland', 'Chemin du Riau 4a, 1162 Saint-Prex, Switzerland', 'Route de la Plage, 1165 Allaman, Switzerland', 'Route du Pralet 8, 1195 Dully, Switzerland', 'Rue de la Colombière 9, 1260 Nyon, Switzerland', 'Route du Port 4, 1009 Pully, Switzerland', 'Avenue Général Guisan 121b, 1009 Pully, Switzerland', 'Avenue de Rhodanie 15, 1007 Lausanne, Switzerland', 'Avenue Emile-Henri-Jaques-Dalcroze, 1007 Lausanne, Switzerland', 'Chemin des Brunette, 1091 Bourg-en-Lavaux, Switzerland', 'Grand-Rue 44, 1095 Lutry, Switzerland', 'Avenue Emile-Henri-Jaques-Dalcroze, 1007 Lausanne, Switzerland', 'Chemin de Chamblandes 32, 1009 Pully, Switzerland', 'Chemin de la Pouponnière 4, 1822 Montreux, Switzerland', 'Pourquoi Aller Plus Loin, Avenue de Chillon, 1823 Montreux, Switzerland'].sample,
       price_per_hour: (2500..5000).to_a.sample,
@@ -127,20 +132,54 @@ Reservation.new(
   pedalo: ped,
 ).save!
 
-puts "creating 10 reservations"
+puts "creating 2 future reservations per pedalos"
+n = 1
+
+Pedalo.all.each do |pedalo|    
+  2.times do
+    duration = (1..3).to_a.sample
+    date = Time.now
+    date += 60*60*24*n
+    puts "#{n}/ from #{date} to #{date + 3600 * duration}"
+    Reservation.new(
+      transaction_price: pedalo.price_per_hour * duration,
+      start_time: date,
+      end_time: date + 3600*duration,
+      accepted: "pending",
+      user: user_list.sample,
+      pedalo: pedalo,
+    ).save!
+    n += 1
+  end
+end
+puts "creating 5 past reservation per pedalos and associated reviews"
+origin = (Pedalo.all.count + 1)*60*60*24*5
 n = 0
-10.times do
-  duration = (1..3).to_a.sample
-  ped = Pedalo.all.sample
-  date = Time.now
-  date += 60*60*24*n
-  Reservation.new(
-    transaction_price: ped.price_per_hour * duration,
-    start_time: date,
-    end_time: date + 3600*duration,
-    accepted: "pending",
-    user: user_list.sample,
-    pedalo: ped,
-  ).save!
-  n += 1
+
+Pedalo.all.each do |pedalo|
+  5.times do
+    user = user_list.sample
+    duration = (1..3).to_a.sample
+    date = Time.now - origin
+    date += 60*60*24*n
+    puts "#{n}/ from #{date} to #{date + 3600 * duration}"
+    puts "pedalo"
+    r = Reservation.new(
+      transaction_price: pedalo.price_per_hour * duration,
+      start_time: date,
+      end_time: date + 3600*duration,
+      accepted: "accepted",
+      user: user,
+      pedalo: pedalo,
+    )
+    r.save!
+    puts "review"
+    Review.new(
+      content: Faker::Restaurant.review,
+      rating: (2..5).to_a.sample,
+      reservation: r,
+      # pedalo: pedalo,
+    ).save!
+    n += 1
+  end
 end

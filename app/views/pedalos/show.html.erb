@@ -1,11 +1,47 @@
 <div class='container-show-pedalo'>
-  <%= image_tag(@pedalo.image_link)%>
+
   <div class='content-show'>
-    <h1><%= @pedalo.name %></h1>
+    <h2 id="title_show"><strong><%= @pedalo.name %></strong></h2>
+    <%= image_tag(@pedalo.image_link)%>
+
+    <h5 id="title_show" class="mb-3"><strong>Description</strong></h5>
     <p><%= @pedalo.description %></p>
-    <p><strong><%= @pedalo.price_per_hour / 100 %> CHF per hour</strong></p>
-    <p>Owner's name: <%= @pedalo.owner.first_name %> <%= @pedalo.owner.last_name %></p>
-    <a class='btn-submit' href="<%= new_pedalo_reservation_path(@pedalo) %>">Book that pedalo!</a>
+
+    <hr class="mt-5 mb-4">
+
+    <h5 id="title_show mt-5" class="mb-3"><strong>Available Location</strong></h5>
+
+      <div id="map" class="map-show"
+           data-markers="<%= @markers.to_json %>"
+           data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
+
+      </div>
+
+    <hr class="mt-5 mb-4">
+
+    <h5 id="title_show mt-5" class="mb-3"><strong>Owner's information</strong></h5>
+
+    <div class="owner-info">
+      <p><strong>First Name: </strong><%= @pedalo.owner.first_name %></p>
+      <p><strong>Last Name: </strong><%= @pedalo.owner.last_name %></p>
+      <p><strong>Email Adress: </strong><%= @pedalo.owner.email%></p>
+    </div>
+
+    <hr class="mt-5 mb-4">
+
+    <h5 id="title_show" class="mb-3"><strong>Review</strong></h5>
+
+    <% @pedalo.reviews.each do |review| %>
+      <%= render 'reviews/card_review', review: review %>
+    <% end %>
+
+    <hr class="mt-5 mb-4" >
+
+
+
+
   </div>
+  <a class='btn-submit mt-2' href="<%= pedalo_path(@pedalo.id) %>" >Book that pedalo!</a>
+
 </div>
 
