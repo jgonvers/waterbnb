@@ -15,7 +15,7 @@
       <% rating = rating.fdiv(reviews.count).round(0).to_i %>
     <% end %>
     <div class="rating-width">
-    <%= render  'reviews/rating', rating: rating %>
+      <%= render  'reviews/rating', rating: rating %>
     </div>
   </div>
 </div>
