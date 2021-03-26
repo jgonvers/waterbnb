@@ -11,4 +11,9 @@ class UsersController < ApplicationController
     end
     @reservations = Reservation.where(user: current_user)
   end
+
+  def homepage_pedalo
+    redirect_to user_path if current_user.role == "client"
+    @pedalos = Pedalo.where(owner: current_user)
+  end
 end
