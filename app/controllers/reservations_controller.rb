@@ -1,5 +1,5 @@
 class ReservationsController < ApplicationController
-  before_action :find_pedalo
+  # before_action :find_pedalo
 
   def index_res_pedalos
     @sorted_reservations = []
@@ -11,18 +11,18 @@ class ReservationsController < ApplicationController
   end
 
   def show
-    # find_pedalo # already in before action
     @reservation = Reservation.find(params[:id])
+    @pedalo = @reservation.pedalo
   end
 
   def new
-    # find_pedalo # already in before action
+    find_pedalo
     @date = Time.now.strftime("%B %d, %Y")
     @reservation = Reservation.new
   end
 
   def create
-    # find_pedalo # already in before action
+    find_pedalo
     @reservation = Reservation.new(reservation_params)
     @reservation.pedalo = @pedalo
     @reservation.user = current_user
@@ -35,12 +35,12 @@ class ReservationsController < ApplicationController
   end
 
   def update
-    # find_pedalo # already in before action
+    # find_pedalo
     @reservation = Reservation.find(params[:id])
     if @reservation.update(reservation_owner_param)
       redirect_to user_path # check link when route change
     else
-      redirect_to reservation_path(@reservation.id)
+      redirect_to reservation_path(@reservation)
     end
   end
 
