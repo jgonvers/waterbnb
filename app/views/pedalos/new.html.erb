@@ -4,6 +4,7 @@
   <%= simple_form_for @pedalo do |f| %>
     <%= f.input :name, placeholder: "What is your pedalo's nickname?"%>
     <%= f.input :description, placeholder: 'Tell us everything about your pedalo' %>
+    <%= f.input :address, placeholder: 'Where is your pedalo located?' %>
     <%= f.input :price_per_hour, placeholder: 'Minimum amount of 15 CHF' %>
     <%=f.input :photo, as: :file %>
     <%= f.submit "Submit!", class: 'btn-submit' %>
