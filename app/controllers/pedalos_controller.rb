@@ -13,6 +13,12 @@ class PedalosController < ApplicationController
 
   def show
     @pedalo = Pedalo.find(params[:id])
+    @markers = [
+      {
+        lat: @pedalo.latitude,
+        lng: @pedalo.longitude,
+        infoWindow: render_to_string(partial: "info_window", locals: { pedalo: @pedalo })
+      }]
     # @marker = @pedalo.geocoded.map do |pedalo|
     #   {
     #     lat: pedalo.latitude,
