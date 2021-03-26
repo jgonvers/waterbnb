@@ -11,7 +11,7 @@
           <p>You have no reservation pending</p>
         <% else %>
           <% @reservations_owner_pending.each do |reservation| %>
-            <a href="#" class="text-reset">
+            <a href="<%= reservation_path(reservation) %>" class="text-reset">
               <%= render 'reservations/card_reservation', reservation: reservation %>
             </a>
           <% end %>
@@ -22,7 +22,7 @@
           <p>you have no reservation of your pedalos</p>
         <% else %>
           <% @reservations_owner.each do |reservation| %>
-            <a href="#" class="text-reset">
+            <a href="<%= reservation_path(reservation) %>" class="text-reset">
               <%= render 'reservations/card_reservation', reservation: reservation %>
             </a>
           <% end %>
@@ -34,7 +34,7 @@
         <p>You have no reservations</p>
       <% else %>
         <% @reservations.each do |reservation| %>
-          <a href="#" class="text-reset">
+          <a href="<%= reservation_path(reservation) %>" class="text-reset">
             <%= render 'reservations/card_reservation', reservation: reservation %>
           </a>
         <% end %>
