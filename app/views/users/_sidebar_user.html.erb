@@ -2,14 +2,16 @@
   <div class="w-100 d-flex justify-content-center mb-3">
     <img class="avatar-sidebar" src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/bd/JenniferAnistonFeb09.jpg/220px-JenniferAnistonFeb09.jpg">
   </div>
-  <p>First Name: <%= current_user.first_name %></p>
-  <p>Last Name: <%= current_user.last_name %></p>
-  <p>Age: <%= current_user.age %> years old</p>
-  <p>Email Address: <%= current_user.email %></p>
+  <p><strong>First Name - </strong> <%= current_user.first_name %></p>
+  <p><strong>Last Name - </strong> <%= current_user.last_name %></p>
+  <p><strong>Age - </strong><%= current_user.age %></p>
+  <p><strong>Email - </strong> <%= current_user.email %></p>
+  <br>
+  <br>
   <% unless current_user.role == "client" %>
     <div class="w-100 d-flex align-items-center flex-column">
-      <a class="btn-submit m-3 text-dark">Show your Pedalos</a>
-      <a class="btn-submit m-3 text-dark">Add a Pedalo</a>
+      <%= link_to 'See your Pedalos', pedalos_path , id: "btn-sidebar" %>
+      <%= link_to 'Add a Pedalo', new_pedalo_path, id: "btn-sidebar" %>
     </div>
   <% end %>
 </div>
