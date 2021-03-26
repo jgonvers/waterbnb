@@ -9,7 +9,7 @@
 
     <hr class="mt-5 mb-4">
 
-    <h5 id="title_show mt-5" class="mb-3"><strong>Available Location</strong></h5>
+    <h5 id="title_show mt-5" class="mb-3"><strong>Location</strong></h5>
 
       <div id="map" class="map-show"
            data-markers="<%= @markers.to_json %>"
@@ -30,10 +30,11 @@
     <hr class="mt-5 mb-4">
 
     <h5 id="title_show" class="mb-3"><strong>Review</strong></h5>
-
+    <div class="d-flex flex-row flex-wrap">
     <% @pedalo.reviews.each do |review| %>
       <%= render 'reviews/card_review', review: review %>
     <% end %>
+    </div>
 
     <hr class="mt-5 mb-4" >
 
