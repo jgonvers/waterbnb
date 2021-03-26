@@ -1,0 +1,31 @@
+.card-info-reservation {
+  background: #white;
+  border-radius: 4px;
+  height: 120px;
+  width: 240px;
+  font-family: Optima, sans-serif;
+  transition: transform .4s 0.1s ease;
+
+  h3 {
+    font-weight: bold;
+    font-size: 25px;
+  }
+
+  h4 {
+    font-size: 20px;
+  }
+
+  &:hover {
+    transform: scale(1.03);
+    box-shadow: 2px 2px 3px #2F2A61;
+    }
+
+  i {
+    font-size: 50px;
+  }
+   img {
+     height: 125px;
+     width: 125px;
+     border-radius: 8px
+   }
+}
