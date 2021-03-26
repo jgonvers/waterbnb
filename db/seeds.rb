@@ -102,7 +102,7 @@ unsinkable.photo.attach(io: file, filename: 'unsinkable.jpg', content_type: 'ima
 puts "creating 10 pedalos"
 10.times do
   name = ""
-  while name.length <= 4 do
+  while name.length <= 4 || name.length > 15  do
     name = Faker::Mountain.name
     puts "trying #{name} for pedalo name"
   end
