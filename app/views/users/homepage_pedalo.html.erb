@@ -1,0 +1,22 @@
+<div class="w-100 m-0 p-0">
+  <div class="d-flex">
+    <%= render "users/sidebar_user" %>
+    <div class="d-flex flex-column align-items-center justify-content-start p-5 w-100">
+      <% if ["owner", "admin"].include? current_user.role then %>
+
+        <h2 class="text-light">Your Pedalos</h2>
+        <div class="d-flex flex-row justify-content-start w-100 flex-wrap">
+        <% if @pedalos.count.zero? %>
+          <p class="text-light">You have no Pedalo</p>
+          <<%= link_to "Add a Pedalo", new_pedalo_path, class: "btn-submit m-3" %>
+        <% else %>
+          <% @pedalos.each do |pedalo| %>
+            <a href="<%= pedalo_path(pedalo) %>" class="text-reset">
+              <%= render 'pedalos/card_pedalo', pedalo: pedalo %>
+            </a>
+          <% end %>
+        <% end %>
+      <% end %>
+    </div>
+  </div>
+</div>

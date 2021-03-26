@@ -1,16 +1,18 @@
-<div class="sidebar_user d-flex flex-column justify-content-start align-items-center p-3">
+<div class="sidebar_user d-flex flex-column justify-content-start align-items-start p-3">
   <div class="w-100 d-flex justify-content-center mb-3">
     <img class="avatar-sidebar" src="https://geeko.lesoir.be/wp-content/uploads/sites/58/2020/05/avatar-1068x602.jpg">
   </div>
-  <h3>profile</h3>
+  <h3 class="mt-3">Profile</h3>
   <p>First Name: <%= current_user.first_name %></p>
   <p>Last Name: <%= current_user.last_name %></p>
   <p>Age: <%= current_user.age %> years old</p>
   <p>Email Address: <%= current_user.email %></p>
   <% unless current_user.role == "client" %>
-    <div class="w-100 d-flex align-items-center flex-column">
-      <a class="btn-submit m-3 text-dark">Show your Pedalos</a>
-      <a class="btn-submit m-3 text-dark">Add a Pedalo</a>
+    <h3 class="mt-3">Pedalos</h3>
+    <div class="w-75 d-flex align-items-stretch flex-column">
+      <%= link_to "Show your Reservations", user_path, class: "btn-submit m-3 text-dark" %>
+      <%= link_to "Show your Pedalos", user_pedalos_path, class: "btn-submit m-3 text-dark" %>
+      <%= link_to "Add a Pedalo", new_pedalo_path, class: "btn-submit m-3 text-dark" %>
     </div>
   <% end %>
 </div>
