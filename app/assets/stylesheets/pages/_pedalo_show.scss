@@ -12,6 +12,10 @@
       border-radius: 3px;
       margin-bottom: 30px;
       }
+    
+    #map {
+      position: relative;
+    }
 }
 
 h2 {
@@ -44,21 +48,6 @@ h2 {
 
 #title_show {
   text-align: left;
-}
-
-.card-review {
-  width: 450px;
-  font-family: Optima, sans-serif;
-  transition: transform .4s 0.1s ease;
-
-    &:hover {
-    transform: scale(1.1);
-    }
-  .avatar {
-    border-radius: 50%;
-    width: 75px;
-    height: 75px;
-  }
 }
 
 .map-show {
