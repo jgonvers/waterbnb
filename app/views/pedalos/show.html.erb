@@ -2,8 +2,9 @@
 
   <div class='content-show'>
     <h2 id="title_show"><strong><%= @pedalo.name %></strong></h2>
-    <%= image_tag(@pedalo.image_link)%>
-
+    <% if @pedalo.photo.attached? %>
+      <%= cl_image_tag @pedalo.photo.key %>
+    <% end %>
     <h5 id="title_show" class="mb-3"><strong>Description</strong></h5>
     <p><%= @pedalo.description %></p>
 
