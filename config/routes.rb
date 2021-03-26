@@ -3,9 +3,11 @@ Rails.application.routes.draw do
   root to: 'pages#home'
   get "/user", to: "users#homepage", as: :user
   get "/user/pedalos", to: "users#homepage_pedalo", as: :user_pedalos
-  resources :pedalos, only: [:index, :show, :new, :create]
-  
-  get "/pedalos/:pedalo_id/reservations", to: "reservations#index_res_pedalos", as: :pedalo_reservations
+  resources :pedalos, only: [:index, :show, :new, :create] do
+    resources :reservations, only: :create
+  end
+
+  # get "/pedalos/:pedalo_id/reservations", to: "reservations#index_res_pedalos", as: :pedalo_reservations
   get "/user/reservations", to: "reservations#index_res_users", as: :user_reservations
   get "/reservations/:id", to: "reservations#show", as: :reservation
   get "/pedalos/:pedalo_id/reservations/new", to: "reservations#new", as: :new_reservation
