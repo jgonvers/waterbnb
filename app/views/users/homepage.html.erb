@@ -1,43 +1,44 @@
-<div class="w-100 m-0 p-0">
-  <div class="d-flex">
-      <%= render "users/sidebar_user" %>
-    <div class="d-flex flex-column align-items-center justify-content-start p-5 w-100">
-      <% if ["owner", "admin"].include? current_user.role then %>
 
-        <h2 class="text-light">Pending Reservation for your Pedalos</h2>
+  <div class="d-flex">
+    <div class="sidenav">
+      <%= render "users/sidebar_user" %>
+    </div>
+    
+      <% if ["owner", "admin"].include? current_user.role then %>
+      <div class='container-userpage'>
+        <h2>Pending Requests for your Pedalos</h2>
         <% if @reservations_owner_pending.count.zero? %>
-          <p class="text-light">You have no reservation pending</p>
+          <p>You have no reservation pending</p>
         <% else %>
           <% @reservations_owner_pending.each do |reservation| %>
-            <a href="<%= reservation_path(reservation) %>" class="text-reset">
+            <a href="#" class="text-reset">
               <%= render 'reservations/card_reservation', reservation: reservation %>
             </a>
           <% end %>
         <% end %>
 
-        <h2 class="text-light">Reservations for your Pedalos</h2>
+        <h2>Reservations for your Pedalos</h2>
         <% if @reservations_owner.count.zero? %>
-          <p class="text-light">you have no reservation of your pedalos</p>
+          <p>you have no reservation of your pedalos</p>
         <% else %>
           <% @reservations_owner.each do |reservation| %>
-            <a href="<%= reservation_path(reservation) %>" class="text-reset">
+            <a href="#" class="text-reset">
               <%= render 'reservations/card_reservation', reservation: reservation %>
             </a>
           <% end %>
         <% end%>
       <% end %>
 
-      <h2 class="text-light">Your Reservations</h2>
+      <h2>Your Reservations</h2>
       <% if @reservations.count.zero? %>
-        <p class="text-light">You have no reservations</p>
+        <p>You have no reservations</p>
       <% else %>
         <% @reservations.each do |reservation| %>
-          <a href="<%= reservation_path(reservation) %>" class="text-reset">
+          <a href="#" class="text-reset">
             <%= render 'reservations/card_reservation', reservation: reservation %>
           </a>
         <% end %>
       <% end %>
-
     </div>
   </div>
-</div>
+
