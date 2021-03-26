@@ -3,9 +3,8 @@
     <div class="sidenav">
       <%= render "users/sidebar_user" %>
     </div>
-    
-      <% if ["owner", "admin"].include? current_user.role then %>
       <div class='container-userpage'>
+      <% if ["owner", "admin"].include? current_user.role then %>
         <h2>Pending Requests for your Pedalos</h2>
         <% if @reservations_owner_pending.count.zero? %>
           <p>You have no reservation pending</p>
