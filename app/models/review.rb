@@ -1,6 +1,6 @@
 class Review < ApplicationRecord
   belongs_to :reservation
-  belongs_to :pedalo
+  delegate :pedalo, to: :reservation
 
   validates :rating, numericality: {
     only_integer: true,
