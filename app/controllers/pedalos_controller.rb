@@ -1,5 +1,4 @@
 class PedalosController < ApplicationController
-
   def index
     @pedalos = Pedalo.all
     @markers = @pedalos.geocoded.map do |pedalo|
@@ -18,7 +17,8 @@ class PedalosController < ApplicationController
         lat: @pedalo.latitude,
         lng: @pedalo.longitude,
         infoWindow: render_to_string(partial: "info_window", locals: { pedalo: @pedalo })
-      }]
+      }
+    ]
     # @marker = @pedalo.geocoded.map do |pedalo|
     #   {
     #     lat: pedalo.latitude,
@@ -33,6 +33,7 @@ class PedalosController < ApplicationController
 
   def create
     @pedalo = Pedalo.new(pedalo_params)
+    @pedalo.price_per_hour = @pedalo.price_per_hour * 100
     @pedalo.owner = current_user
     if @pedalo.save!
       redirect_to pedalos_path
