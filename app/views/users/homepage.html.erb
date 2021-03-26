@@ -1,12 +1,45 @@
-<div class="container">
+<div class="container w-100 m-0 p-0">
+  <div class="d-flex">
+    <div class="sidenav">
+      <%= render "users/sidebar_user" %>
+    </div>
+    <div class="d-flex flex-column align-items-center justify-content-start p-5">
+      <% if ["owner", "admin"].include? current_user.role then %>
 
-<% if ["owner", "admin"].include? current_user.role then %>
+        <h2 class="text-light">Pending Reservation for your Pedalos</h2>
+        <% if @reservations_owner_pending.count.zero? %>
+          <p class="text-light">You have no reservation pending</p>
+        <% else %>
+          <% @reservations_owner_pending.each do |reservation| %>
+            <a href="#" class="text-reset">
+              <%= render 'reservations/card_reservation', reservation: reservation %>
+            </a>
+          <% end %>
+        <% end %>
 
-  <% Review.all.each do |reservation| %>
-  <%= render 'reviews/card_review', review: reservation %>
-<% end %>
-  <% Pedalo.all.each do |reservation| %>
-  <%= render 'pedalos/card_pedalo', pedalo: reservation %>
-  <% end %>
-<% end %>
+        <h2 class="text-light">Reservations for your Pedalos</h2>
+        <% if @reservations_owner.count.zero? %>
+          <p class="text-light">you have no reservation of your pedalos</p>
+        <% else %>
+          <% @reservations_owner.each do |reservation| %>
+            <a href="#" class="text-reset">
+              <%= render 'reservations/card_reservation', reservation: reservation %>
+            </a>
+          <% end %>
+        <% end%>
+      <% end %>
+
+      <h2 class="text-light">Your Reservations</h2>
+      <% if @reservations.count.zero? %>
+        <p class="text-light">You have no reservations</p>
+      <% else %>
+        <% @reservations.each do |reservation| %>
+          <a href="#" class="text-reset">
+            <%= render 'reservations/card_reservation', reservation: reservation %>
+          </a>
+        <% end %>
+      <% end %>
+
+    </div>
+  </div>
 </div>
