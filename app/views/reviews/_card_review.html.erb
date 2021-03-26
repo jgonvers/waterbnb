@@ -5,7 +5,9 @@
     <h3><%= review.reservation.user.first_name %> <%= review.reservation.user.last_name.first %>.</h4>
     <p><%= review.reservation.start_time.strftime("%-d %B %Y") %><p>
     </div>
+    <div class="m-3">
     <%= render 'reviews/rating', rating: review.rating %>
+    </div>
   </div>
   <div>
   <p class="text-left"><%= review.content %></p>
