@@ -1,7 +1,7 @@
 
 <div class="d-flex m-3 flex-row justify-content-start align-items-center card-pedalo">
   <% if pedalo.photo.attached? %>
-    <%= cl_image_tag pedalo.photo.key, height: 300, width: 400, crop: :fill %>
+    <%= cl_image_tag pedalo.photo.key, height: 400, width: 400, crop: :fill %>
   <% end %>
   
   <div class="ml-3 p-1">
