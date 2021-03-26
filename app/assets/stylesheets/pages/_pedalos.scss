@@ -10,9 +10,9 @@
 }
 
 .hero-image {
-  background: url('https://source.unsplash.com/4ibyBpL6bBA/1600x1000');
-  height: 200px;
-  background-position: right;
+  background: url('https://source.unsplash.com/DSwBHyWKiVw/1500x500');
+  height: 250px;
+  background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
   position: relative;
@@ -43,6 +43,7 @@
 #map {
   height: 750px;
   width: 46%;
+  margin-top: 16px;
   margin-left: 0px;
   position: sticky;
   top: 0;
